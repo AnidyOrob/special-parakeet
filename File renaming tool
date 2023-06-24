@@ -1,0 +1,13 @@
+import os
+
+def rename_files(directory, prefix):
+    for filename in os.listdir(directory):
+        if os.path.isfile(os.path.join(directory, filename)):
+            new_filename = prefix + filename
+            os.rename(os.path.join(directory, filename), os.path.join(directory, new_filename))
+            print(f"Renamed '{filename}' to '{new_filename}'")
+
+if __name__ == "__main__":
+    directory_path = input("Enter the directory path: ")
+    new_prefix = input("Enter the new filename prefix: ")
+    rename_files(directory_path, new_prefix)
